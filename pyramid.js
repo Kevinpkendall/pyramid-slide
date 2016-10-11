@@ -3,57 +3,27 @@
     // prevent the form from submitting (otherwise page will refresh)
     event.preventDefault();
 
-    // clear any previous error message that might be displayed from last time
-    clearError();
-
     // TODO 3
     // figure out the height the user typed (replace the "5" below)
     var input = $('input').val();
+    
+    updateNumber();
+    $('.rangeNumber').append(input);
+    
+    
     heightStr = input;
-
-    // if they didn't type anything, yell at them and exit early
-    if (heightStr == "") {
-        displayError("Please provide a height");
-        return;
-    }
 
     // convert the string to an int
     height = parseInt(heightStr);
 
-    // if the height is not-a-number or not positive, yell at them and exit early
-    if (isNaN(height) || height < 1) {
-        displayError(heightStr + ": That's not a valid height.");
-        return;
-    }
-
-    // if the height is absurdly tall, yell at them and exit early
-    var tooTall = 100;
-    if (height > tooTall) {
-        displayError("Are you cray? I can't build a pyramid that tall.");
-        return;
-    }
-
     // draw pyramid with the specified height
     drawPyramid(height);
-	
-	
 });
 
 
 
 
-/**
- * displayError
- *
- * Displays an error message on the text input, and colors it red
- */
-function displayError(message) {
-    // TODO 4
-    // implement this function using jQuery
-    $("#height").addClass("invalid-field");
-    $(".error-message").text(message);
-    $("#pyramid").text("");
-}
+
 
 
 /*
@@ -61,9 +31,9 @@ function displayError(message) {
  *
  * Undisplays the error message and removes the red CSS style
  */
-function clearError(message) {
-    $("#height").removeClass("invalid-field");
-    $(".error-message").text("");
+function updateNumber(message) {
+    
+    $(".rangeNumber").text("");
 }
 
 /**
