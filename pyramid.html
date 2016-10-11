@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        #pyramid {
+            line-height: 0;
+            font-size: 30px;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
+
+        .invalid-field {
+            border: 1px solid red;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Pyramid</h1>
+
+    <p>When you say</p>
+    <p><strong>Draw a pyramid</strong></p>
+    <p>I say:</p>
+    <br>
+
+    <form id="draw-form">
+        <label>
+            How high?
+            <input type="range" min="1" max="10"  id="height"/>
+            <label class="error-message"></label>
+			<label id="sliderNumber"></label>
+        </label>
+        <br><br>
+        
+    </form>
+
+    <br><br>
+
+    <div id="pyramid"></div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="mario.js"></script>
+</body>
+</html>
